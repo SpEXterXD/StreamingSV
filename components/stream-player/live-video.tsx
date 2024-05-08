@@ -39,6 +39,10 @@ export const LiveVideo = ({
         }
     }
 
+    useEffect(() => {
+        onVolumeChange(0);
+    }, [])
+
     const toggleFullscreen = () => {
         if (isFullscreen) {
             document.exitFullscreen();
@@ -47,9 +51,7 @@ export const LiveVideo = ({
         }
     }
 
-    useEffect(() => {
-        onVolumeChange(0);
-    })
+   
 
     const handleFullscreenChange = () => {
         const isCurrentlyFullscreen = document.fullscreenElement !== null;

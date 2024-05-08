@@ -6,7 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import { useTransition } from "react";
 import { toast } from "sonner";
 
-type FieldType ="isChatEnabled" | "isChatDelayed" | "isChatFollowerOnly"
+type FieldType ="isChatEnabled" | "isChatDelayed" | "isChatFollowersOnly"
 
 interface ToggleCardProps {
     label: string;
