@@ -5,7 +5,7 @@ import { useTransition } from "react";
 import { onFollow, onUnfollow } from "@/actions/follow";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { onBlock, onUnblock } from "@/actions/block";
+import { onBlock } from "@/actions/block";
 
 interface ActionsProps {
     isFollowing: boolean;
@@ -22,7 +22,7 @@ export const Actions = ({
         startTransition(() => {
             onFollow(userId)
                 .then((data) => toast.success(`You Are Now Following ${data.following.username}`))
-                .catch((data) => toast.error("Something Went Wrong"))
+                .catch(() => toast.error("Something Went Wrong"))
         }) 
     };
 
@@ -30,7 +30,7 @@ export const Actions = ({
         startTransition(() => {
             onUnfollow(userId)
                 .then((data) => toast.success(`You Unfollowed ${data.following.username}`))
-                .catch((data) => toast.error("Something Went Wrong"))
+                .catch(() => toast.error("Something Went Wrong"))
         }) 
     };
 
@@ -45,7 +45,7 @@ export const Actions = ({
     const handelBlock = () => {
         startTransition(() => {
             onBlock(userId)
-                .then((data) => toast.success(`Blocked The User ${data.blocked.username}`))
+                .then((data) => toast.success(`Blocked The User `))
                 .catch(() => toast.error("Something Went Wrong"))
         })
     }
